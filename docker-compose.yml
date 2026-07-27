@@ -1,0 +1,14 @@
+services:
+  rtsp:
+    build: .
+    image: streaming-service-xandy:rtsp
+    container_name: xandy-rtsp
+    ports:
+      # RTSP (use TCP interleaved RTP from clients for simplest Docker networking)
+      - "8554:8554"
+    volumes:
+      - ./samples:/app/samples:ro
+    environment:
+      GST_DEBUG: "1"
+      MEDIA_FILE: /app/samples/15158346_3840_2160_60fps.mp4
+    restart: unless-stopped

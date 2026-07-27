@@ -1,0 +1,9 @@
+.git
+.gitignore
+build
+docs
+*.md
+!README.md
+.cursor
+**/*.o
+**/.DS_Store
